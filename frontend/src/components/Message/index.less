@@ -1,0 +1,61 @@
+.message-list {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 14px 20px;
+  border-top: 2px solid #212121;
+  border-bottom: 2px solid #212121;
+
+  .item {
+    display: flex;
+    gap: 0 12px;
+    margin-bottom: 36px;
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      flex-basis: 36px;
+    }
+
+    .nickname {
+      position: relative;
+      font-size: 16px;
+      top: -10px;
+      display: block;
+      color: #666;
+    }
+
+    .msg {
+      position: relative;
+      color: #fff;
+      padding: 8px 10px;
+      background-color: #2c2c2c;
+      border-radius: 4px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        border: 8px solid transparent;
+        border-right: 8px solid #2c2c2c;
+        left: -16px;
+        top: 10px;
+      }
+    }
+  }
+
+  .item.my {
+    flex-direction: row-reverse;
+
+    .msg {
+      background-color: #2fb560;
+      color: #191919;
+
+      &::before {
+        border-right-color: transparent;
+        border-left-color: #2fb560;
+        right: -16px;
+        left: unset;
+      }
+    }
+  }
+}

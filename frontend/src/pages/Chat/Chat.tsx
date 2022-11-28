@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Message from '../../components/Message';
 import './Chat.less';
 
 export default function Chat() {
@@ -31,19 +32,7 @@ export default function Chat() {
           <div className='header'>
             <div className='nickname'>hello</div>
           </div>
-          <div className='message-list'>
-            <div className='item'>
-              <img src='https://picsum.photos/200?r=3' alt='' className='avatar' />
-              <div>
-                <span className='nickname'>hello</span>
-                <span className='msg'>海上升明月，天涯共此时。谁知盘中餐，粒粒皆辛苦。</span>
-              </div>
-            </div>
-            <div className='item my'>
-              <img src='https://picsum.photos/200?r=1' alt='' className='avatar' />
-              <span className='msg'>如无必要，勿增实体</span>
-            </div>
-          </div>
+          <Message />
           <div className='sent'>
             <textarea className='msg-input' />
           </div>
