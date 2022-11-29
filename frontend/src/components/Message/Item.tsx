@@ -1,12 +1,32 @@
+import userStore from '@/store/user';
 import './index.less';
 
-export default function Item() {
+interface MessageItem {
+  id: string;
+  nickname: string;
+  avatar: string;
+  msg: React.ReactNode;
+  createAt?: Date;
+}
+
+interface Props {
+  data: MessageItem;
+  isMy?: boolean;
+}
+
+export default function Item(props: Props) {
+  const {
+    data: { id, nickname, avatar, msg, createAt },
+  } = props;
+
+  const isMy = id === userStore.id;
+
   return (
-    <div className='item'>
-      <img src='https://picsum.photos/200?r=3' alt='' className='avatar' />
-      <div>
-        <span className='nickname'>hello</span>
-        <span className='msg'>海上升明月，天涯共此时。谁知盘中餐，粒粒皆辛苦。</span>
+    <div className={`item ${isMy && 'my'}`}>
+      <img src={avatar} alt="" className="avatar" />
+      <div className="item-wrapper">
+        {!isMy && <span className="nickname">{nickname}</span>}
+        <span className="msg">{msg}</span>
       </div>
     </div>
   );
